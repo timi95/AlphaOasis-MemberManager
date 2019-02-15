@@ -1,0 +1,39 @@
+<form action="" method="put">
+  <ul>
+    <li> ID:
+        <input [(ngModel)]="updateForm.id" type="text" placeholder="Enter ID value" name="id">
+    </li>    
+
+    <li> Name:
+      <input [(ngModel)]="updateForm.Name" type="text" placeholder="Enter Name" name="name">
+    </li>
+
+    <li> Email:
+            <input [(ngModel)]="updateForm.email" type="text" placeholder="Enter Email Address" name="email">
+    </li>
+
+    <li> Phone:
+        <input [(ngModel)]="updateForm.phone" type="text" placeholder="Enter Phone Number" name="phone">
+    </li>
+
+    <li>
+       Industry:
+        <select name="singleSelect" ng-model="updateForm.industry">
+            <option value="INDCHOICES.FINANCE">{{ INDCHOICES.FINANCE }} </option>
+            <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.HEALTHCARE }} </option>
+        </select>
+    </li>
+
+    <li> Description:
+            <input [(ngModel)]="updateForm.description" type="text" placeholder="Description placeholder" name="description">
+    </li>
+
+    <li> Website:
+        <input [(ngModel)]="updateForm.website" type="text" placeholder="Enter Website URL" name="website">
+    </li>
+  </ul>
+
+  <button type="submit" (click)="updateAccount()">
+    Update Account
+  </button>
+</form>

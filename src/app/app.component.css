@@ -1,0 +1,16 @@
+section > ul {
+    margin: 0px;
+    padding:10px;
+    background-color: lavender;
+    border: solid cornflowerblue;
+}
+
+section > div{
+    background-color: lavender;
+    border: solid pink;
+}
+
+.myTitle {
+    background-color: lavender;
+    border: solid crimson;
+}

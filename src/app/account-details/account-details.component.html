@@ -1,0 +1,11 @@
+<div *ngIf="account">
+    <h2>{{account.Name | uppercase}} Details</h2>
+    <div><span>ID: </span>{{account.id}}</div>
+    <div><span>Name: </span>{{account.Name}}</div>
+    <div><span>Email: </span>{{account.email}}</div>
+    <div><span>Phone: </span>{{account.phone}}</div>
+    <div><span>Industry: </span>{{account.industry}}</div>
+    <div><span>Description: </span>{{account.description}}</div>
+    Webste: <a href="{{ account.website }}"> {{account. website}}</a>
+    <!-- <ng-content></ng-content> -->
+</div>

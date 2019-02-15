@@ -1,0 +1,24 @@
+<h1>
+  Oasis Accounts
+</h1>
+<h4> Search Account: 
+  <input type="text" placeholder="Search Accounts" #entry>
+   <button (click)="SearchAccounts(entry)"> Search </button> 
+</h4>
+<table  style="width:100%">
+    <tr>
+        <th> Name</th>
+        <th> Phone</th>
+        <th> Email</th>
+        <th> Website</th>
+    </tr>
+    <tr *ngFor = " let account of account_list">
+      <a [routerLink]=" ['/account-details', account.id] " > 
+        <td> <strong> {{ account.id }}</strong> : {{ account.Name }} </td>
+      </a>
+      <td> {{ account.phone}}</td>
+      <td> {{ account.email }} </td>
+      <td> {{ account.website }} </td>
+    </tr>
+    
+</table>
