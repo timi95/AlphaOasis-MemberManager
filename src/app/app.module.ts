@@ -10,6 +10,10 @@ import { AccountCreateComponent } from './account-create/account-create.componen
 import { AccountUpdateComponent } from './account-update/account-update.component';
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from "./auth/auth.guard";
 
 @NgModule({
   declarations: [
@@ -18,15 +22,19 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
     AccountCreateComponent,
     AccountUpdateComponent,
     AccountDeleteComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() { }
+}

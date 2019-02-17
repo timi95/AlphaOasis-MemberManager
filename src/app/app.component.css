@@ -6,6 +6,7 @@ section > ul {
 }
 
 section > div{
+    width: 100%;
     background-color: lavender;
     border: solid pink;
 }

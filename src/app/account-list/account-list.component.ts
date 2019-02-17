@@ -6,9 +6,10 @@ import { ApiService } from 'src/services/api.service';
   templateUrl: './account-list.component.html',
   styleUrls: ['./account-list.component.css']
 })
+
 export class AccountListComponent implements OnInit {
 
-  private  account_list:  Array<object> = [];
+  private  account_list:  Array<Account> = [];
   constructor(private  apiService:  ApiService) { }
 
     ngOnInit() {
@@ -17,7 +18,7 @@ export class AccountListComponent implements OnInit {
         // }
     }
     getAccounts() {
-      this.apiService.getAccounts().subscribe((data:  Array<object>) => {
+      this.apiService.getAccounts().subscribe((data:  Array<Account>) => {
           this.account_list  =  data;
           console.log(data);
       });
@@ -27,11 +28,22 @@ export class AccountListComponent implements OnInit {
     // let localArray = [] ;
     console.log('Searching Accounts');
     console.log('found:', entry.value);
-    this.account_list = this.account_list.filter( result => [
-        
-    ]
-    );
+    // Filtering attempt, might need and interface to assert the type of object in account_list
+    this.account_list = this.account_list.filter( account => account.Name.includes(entry.value) );
+    if ( !this.account_list.length) {
+      this.getAccounts();
+    }
   }
 
 
+}
+export  interface Account {
+  id: string;
+  Name: string;
+  email: string;
+  phone: string;
+  industry: string;
+  website: string;
+  description: string;
+  isActive: boolean;
 }
