@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/services/api.service';
+import { MessageService } from 'src/services/messages.service';
 
 
 @Component({
@@ -29,17 +30,20 @@ export class AccountCreateComponent implements OnInit {
     description : 'A Default kind of guy',
     isActive : true,
   };
-  constructor(private  apiService:  ApiService) { }
+  constructor(private messages: MessageService, private  apiService:  ApiService) { }
 
   ngOnInit() {
   }
 
   createAccount() {
-
-
-    this.apiService.createAccount(this.account).subscribe((response) => { console.log(response); });
-
-
+    this.apiService.createAccount(this.account).subscribe((response) => {
+       console.log(response);
+    },
+    err => {
+      console.log(err);
+      this.messages.add(err);
+    }
+  );
   }
 
 

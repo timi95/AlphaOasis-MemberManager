@@ -13,7 +13,12 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from "./auth/auth.guard";
+import { NgZorroAntdModule, NZ_I18N, en_GB } from 'ng-zorro-antd';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { MessagesComponent } from './messages/messages.component';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -24,15 +29,18 @@ import { AuthGuard } from "./auth/auth.guard";
     AccountDeleteComponent,
     AccountDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgZorroAntdModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_GB }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

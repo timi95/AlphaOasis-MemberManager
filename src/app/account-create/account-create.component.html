@@ -1,18 +1,26 @@
 <h1>
-  Create Contact
+  Register an Alpha Member
 </h1>
-<div><span>Name: </span>{{account.Name}} <input [(ngModel)]="account.Name" type="text" placeholder="Enter ID value" name="Name"> </div>
-<div><span>Email: </span>{{account.email}} <input [(ngModel)]="account.email" type="text" placeholder="Enter email value" name="email"> </div>
-<div><span>Phone: </span>{{account.phone}} <input [(ngModel)]="account.phone" type="text" placeholder="Enter phone value" name="phon"> </div>
+<div><span>Name: </span> <input [(ngModel)]="account.Name" type="text" placeholder="Enter ID value" name="Name">: {{account.Name}} </div>
+<div><span>Email: </span> <input [(ngModel)]="account.email" type="text" placeholder="Enter email value" name="email">: {{account.email}}</div>
+<div><span>Phone: </span> <input [(ngModel)]="account.phone" type="text" placeholder="Enter phone value" name="phon">: {{account.phone}}</div>
 <div><span>Industry: </span>{{account.industry}} 
     <select name="singleSelect" ng-model="account.industry">
-            <option value="INDCHOICES.FINANCE">{{ INDCHOICES.FINANCE }} </option>
-            <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.HEALTHCARE }} </option>
+                <option value="INDCHOICES.FINANCE">{{ INDCHOICES.FINANCE }} </option>
+                <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.HEALTHCARE }} </option>
+                <option value="INDCHOICES.FINANCE">{{ INDCHOICES.INSURANCE }} </option>
+                <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.LEGAL }} </option>
+                <option value="INDCHOICES.FINANCE">{{ INDCHOICES.MANUFACTURING }} </option>
+                <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.PUBLISHING }} </option>
+                <option value="INDCHOICES.FINANCE">{{ INDCHOICES.REAL_ESTATE }} </option>
+                <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.SOFTWARE }} </option>
     </select>
  </div>
-<div><span>Description: </span>{{account.description}} <input [(ngModel)]="account.description" type="text" placeholder="Enter a description" name="description"> </div>
 <div>
-        Website: {{account. website}} <input [(ngModel)]="account.website" type="text" placeholder="Enter website address" name="website">
+        <span>Description: </span> <input [(ngModel)]="account.description" type="text" placeholder="Enter a description" name="description">: {{account.description}}
+</div>
+<div>
+        Website: <input [(ngModel)]="account.website" type="text" placeholder="Enter website address" name="website">: {{account. website}}
 </div>
 <button (click)="createAccount()">
     Create Account

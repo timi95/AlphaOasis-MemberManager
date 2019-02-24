@@ -6,7 +6,7 @@ import { AccountUpdateComponent } from './account-update/account-update.componen
 import { AccountDeleteComponent } from './account-delete/account-delete.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from "./register/register.component";
+import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -44,7 +44,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers: [AuthGuard],
+  providers: [],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/services/api.service';
+import { MessageService } from 'src/services/messages.service';
 
 @Component({
   selector: 'app-account-update',
@@ -18,20 +19,27 @@ export class AccountUpdateComponent implements OnInit {
     SOFTWARE: 'SOFTWARE',
   };
   updateForm: Object = {
-    Name : 'Bob',
-    email : 'bob@email.com',
-    phone : '0987654321',
+    Name : 'Default',
+    email : 'default@email.com',
+    phone : '1234567890',
     industry : null,
-    website : 'https://bob.github.io',
-    description : 'A Bobby kind of guy',
+    website : 'default.github.io',
+    description : 'Default............',
     isActive : true,
   };
-  constructor(private  apiService:  ApiService) { }
+  constructor(private messages: MessageService, private  apiService:  ApiService) { }
 
   ngOnInit() {
   }
   updateAccount() {
-    this.apiService.updateAccount(this.updateForm).subscribe((response) => { console.log(response); });
+    this.apiService.updateAccount(this.updateForm).subscribe((response) => {
+       console.log(response);
+      },
+      err => {
+        console.log(err);
+        this.messages.add(err);
+      }
+    );
   }
 
 }

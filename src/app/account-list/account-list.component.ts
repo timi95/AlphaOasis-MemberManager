@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/services/api.service';
+import { MessageService } from 'src/services/messages.service';
 
 @Component({
   selector: 'app-account-list',
@@ -10,7 +11,7 @@ import { ApiService } from 'src/services/api.service';
 export class AccountListComponent implements OnInit {
 
   private  account_list:  Array<Account> = [];
-  constructor(private  apiService:  ApiService) { }
+  constructor(private messages: MessageService, private  apiService:  ApiService) { }
 
     ngOnInit() {
         // if (this.account_list.length < 1) {
@@ -21,7 +22,12 @@ export class AccountListComponent implements OnInit {
       this.apiService.getAccounts().subscribe((data:  Array<Account>) => {
           this.account_list  =  data;
           console.log(data);
-      });
+      },
+      err => {
+        console.log(err);
+        this.messages.add(err);
+      }
+    );
     }
 
   SearchAccounts(entry) {

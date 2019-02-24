@@ -1,5 +1,94 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="myTitle" style="text-align:center">
+<!-- NG-ZORRO -->
+<nz-layout style="Display:flex;  height: 100vh;">
+  <nz-header class="myTitle" style="display:inline; flex-direction: row; justify-content: space-between; text-align:center;">
+    <div class="logo"> 
+      <svg height="42pt" viewBox="-43 0 512 512" width="42pt" xmlns="http://www.w3.org/2000/svg"><path d="m204.871094 0h15.59375v67.972656h-15.59375zm0 0" fill="#ffc73b"/><path d="m183.035156 20.992188h59.265625v15.59375h-59.265625zm0 0" fill="#ffc73b"/><path d="m397.511719 343.148438v168.851562h-369.679688v-168.851562l13.574219-22.820313 7.152344-12.027344 164.214844-55.640625 127.570312 47.5 10.582031 7.964844zm0 0" fill="#e8e7e6"/><path d="m314.445312 163.089844v348.910156h-203.5625v-348.910156l101.789063-85.496094zm0 0" fill="#e8e7e6"/><path d="m397.511719 343.148438v20.792968l-184.839844-68.375-184.839844 68.375v-20.792968l13.574219-22.820313 171.265625-63.339844 138.253906 51.136719zm0 0" fill="#d1d1d1"/><path d="m412.78125 348.792969-200.113281-74.015625-200.113281 74.015625-12.554688-33.945313 212.667969-78.65625 212.667969 78.65625zm0 0" fill="#bf6a30"/><path d="m314.445312 163.089844v34.253906l-101.773437-76.335938-101.789063 76.335938v-34.253906l101.789063-85.496094zm0 0" fill="#d1d1d1"/><path d="m341.144531 196.570312-128.476562-96.355468-128.476563 96.355468-21.714844-28.953124 150.191407-112.640626 150.191406 112.640626zm0 0" fill="#bf6a30"/><path d="m246.597656 181.640625c0 18.738281-15.191406 33.929687-33.929687 33.929687s-33.929688-15.191406-33.929688-33.929687 15.191407-33.929687 33.929688-33.929687 33.929687 15.191406 33.929687 33.929687zm0 0" fill="#bf6a30"/><path d="m212.667969 205.171875c-12.976563 0-23.53125-10.554687-23.53125-23.53125s10.554687-23.53125 23.53125-23.53125c12.976562 0 23.53125 10.554687 23.53125 23.53125s-10.554688 23.53125-23.53125 23.53125zm0 0" fill="#ffc73b"/><path d="m91.042969 343.449219c-19.070313 21.074219-29.628907 48.484375-29.628907 76.90625v55.636719h59.253907v-55.636719c0-28.421875-10.558594-55.832031-29.625-76.90625zm0 0" fill="#bf6a30"/><path d="m71.8125 465.59375v-45.238281c0-21.765625 6.757812-42.78125 19.230469-60.332031 12.472656 17.550781 19.230469 38.566406 19.230469 60.332031v45.238281zm0 0" fill="#ffc73b"/><path d="m334.296875 343.449219c-19.070313 21.074219-29.628906 48.484375-29.628906 76.90625v55.636719h59.253906v-55.636719c0-28.421875-10.558594-55.832031-29.625-76.90625zm0 0" fill="#bf6a30"/><path d="m315.0625 465.59375v-45.238281c0-21.765625 6.761719-42.78125 19.234375-60.332031 12.46875 17.550781 19.230469 38.566406 19.230469 60.332031v45.238281zm0 0" fill="#ffc73b"/><path d="m212.667969 332.304688c-25.851563 28.570312-40.167969 65.730468-40.167969 104.261718v75.433594h80.335938v-75.429688c0-38.535156-14.316407-75.691406-40.167969-104.265624zm0 0" fill="#bf6a30"/><path d="m182.898438 512v-75.429688c0-31.992187 10.492187-62.820312 29.769531-88.03125 19.273437 25.210938 29.773437 56.039063 29.773437 88.03125v75.429688zm0 0" fill="#4d4d4d"/></svg>  
+    </div>
+      <h1 style="display:inline; color: #fffcf7;">
+          <i nz-icon style="color: hotpink;"> </i>
+          Welcome to {{ title|uppercase }}! :
+      </h1>
+     <h4 style="color: #fffcf7; display:inline;"> member manager</h4>
+     <a [routerLink]="'/login'"> Login / Logout ! </a>
+     <!-- <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'">
+        <li nz-menu-item>
+           
+        </li>
+     </ul> -->
+  </nz-header>
+  
+  <nz-layout>
+    <!-- SIDE BAR -->
+    <nz-sider [nzCollapsible]="'true'" >
+      <ul nz-menu [nzTheme]="'dark'"  [nzMode]="'inline'"  *ngIf="apiservice.token">
+          <li nz-menu-item> <a [routerLink]="'/accounts'">
+            <i nz-icon type="team" theme="outline" style="color: green;"></i>
+            Accounts
+           </a>
+          </li>
+          <!-- SUB-MENU -->
+          <li nz-submenu>
+              <span title>
+                  <i nz-icon type="tool" theme="outline" style="color: crimson;"></i>
+                Actions
+              </span>
+              <ul>
+                 <li nz-menu-item> 
+                    <a [routerLink]="'/create-account'">
+                      <i nz-icon type="user-add" theme="outline" style="color: lightcoral;"></i>
+                      Create Account 
+                    </a>
+                 </li>
+                  <li nz-menu-item> 
+                    <a [routerLink]="'/update-account'">
+                      <i nz-icon type="solution" theme="outline" style="color: darkgoldenrod;"></i> 
+                      Update Account 
+                    </a> 
+                  </li>
+                  <li nz-menu-item> 
+                    <a [routerLink]="'/delete-account'">
+                      <i nz-icon type="user-delete" theme="outline" style="color: dodgerblue;"></i>
+                       Delete Account 
+                    </a> 
+                  </li>
+              </ul>
+          </li>
+          <!-- SUB-MENU END -->
+
+          <li nz-menu-item> <a [routerLink]="'register'">
+            <i nz-icon type="user-add" theme="outline" style="color: hotpink;"></i>
+            Register New Admin
+           </a>
+          </li>
+
+      </ul>
+    </nz-sider>
+    <!-- SIDE BAR END --> 
+    
+    <!-- MAIN CONTENT -->
+    <nz-content style="padding: 1em 2em;">
+     
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        <app-messages></app-messages>
+    </nz-content>  
+    <!-- MAIN CONTENT END -->
+
+  </nz-layout>
+</nz-layout>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="myTitle" style="text-align:center">
   <h1>
     Welcome to {{ title|uppercase }}! 
   </h1>
@@ -20,5 +109,4 @@
           <router-outlet></router-outlet>
       </div>
 
-</section>
-
+</section> -->

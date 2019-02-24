@@ -1,11 +1,77 @@
-<div *ngIf="account">
-    <h2>{{account.Name | uppercase}} Details</h2>
-    <div><span>ID: </span>{{account.id}}</div>
-    <div><span>Name: </span>{{account.Name}}</div>
-    <div><span>Email: </span>{{account.email}}</div>
-    <div><span>Phone: </span>{{account.phone}}</div>
-    <div><span>Industry: </span>{{account.industry}}</div>
-    <div><span>Description: </span>{{account.description}}</div>
-    Webste: <a href="{{ account.website }}"> {{account. website}}</a>
-    <!-- <ng-content></ng-content> -->
+<div class="all-details">
+
+        <div *ngIf="account">
+                <div>
+                    <h2>{{account.Name | uppercase}} Details</h2>
+                    <div><span>ID: </span>{{account.id}}</div>
+                    <div><span>Name: </span>{{account.Name}}</div>
+                    <div><span>Email: </span>{{account.email}}</div>
+                    <div><span>Phone: </span>{{account.phone}}</div>
+                    <div><span>Industry: </span>{{account.industry}}</div>
+                    <div><span>Description: </span>
+                        <p>
+                                {{account.description}}
+                        </p>
+                    </div>
+                    Website: <a href="{{account?.website}}"> {{account.website}}</a>
+                </div>
+                <button (click)="toggleEdit()"> Toggle Edit </button>
+            </div>
+            
+            
+            <div *ngIf="editable">
+            
+                    <h1> Update this Account : </h1>
+                    <div *ngIf="account">
+                        
+                    </div>
+                    <form action="" method="put">
+                    <ul>
+                        <li> ID: {{updateForm.id}} </li> 
+            
+                        <li> Name:
+                        <input [(ngModel)]="updateForm.Name" type="text" placeholder="{{account.Name}}" name="name">
+                        </li>
+            
+                        <li> Email:
+                                <input [(ngModel)]="updateForm.email" type="text" placeholder="{{account.email}}" name="email">
+                        </li>
+            
+                        <li> Phone:
+                            <input [(ngModel)]="updateForm.phone" type="text" placeholder="{{account.phone}}" name="phone">
+                        </li>
+            
+                        <li>
+                        Industry:
+                            <select name="singleSelect" ng-model="updateForm.industry">
+                                    <option value="INDCHOICES.FINANCE">{{ INDCHOICES.FINANCE }} </option>
+                                    <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.HEALTHCARE }} </option>
+                                    <option value="INDCHOICES.FINANCE">{{ INDCHOICES.INSURANCE }} </option>
+                                    <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.LEGAL }} </option>
+                                    <option value="INDCHOICES.FINANCE">{{ INDCHOICES.MANUFACTURING }} </option>
+                                    <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.PUBLISHING }} </option>
+                                    <option value="INDCHOICES.FINANCE">{{ INDCHOICES.REAL_ESTATE }} </option>
+                                    <option value="INDCHOICES.HEALTHCARE">{{ INDCHOICES.SOFTWARE }} </option>
+                            </select>
+                        </li>
+            
+                        <li> Description:
+                                <textarea style="background-color:rgb(175, 174, 174);color:white;" [(ngModel)]="updateForm.description" rows="5" cols="25" name="description">                             
+                                </textarea>
+                                <!-- <input [(ngModel)]="updateForm.description" type="text" placeholder="{{account.description}}" name="description"> -->
+                        </li>
+            
+                        <li> Website:
+                            <input [(ngModel)]="updateForm.website" type="text" placeholder="{{account.website}}" name="website">
+                        </li>
+                    </ul>
+            
+                    <button type="submit" (click)="updateAccount()">
+                        Update Account
+                    </button>
+                    </form>
+            
+            </div>
+            
+
 </div>
