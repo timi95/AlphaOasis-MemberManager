@@ -10,7 +10,7 @@ import { MessageService } from 'src/services/messages.service';
 
 export class AccountListComponent implements OnInit {
 
-  private  account_list:  Array<Account> = [];
+  public  account_list:  Array<Account> = [];
   constructor(private messages: MessageService, private  apiService:  ApiService) { }
 
     ngOnInit() {

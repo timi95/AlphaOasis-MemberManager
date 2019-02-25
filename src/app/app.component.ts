@@ -11,9 +11,7 @@ export class AppComponent implements OnInit {
   user: any;
   title = 'alpha-oasis';
 
-  constructor( private apiservice: ApiService ) {
-
-  }
+  constructor( public apiservice: ApiService ) { }
 
   ngOnInit() { }
 

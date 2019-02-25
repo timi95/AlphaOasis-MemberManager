@@ -10,8 +10,8 @@ import { MessageService } from 'src/services/messages.service';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  private account: any = 1 ;
-  private editable = false;
+  public account: any = 1 ;
+  public editable = false;
 
   INDCHOICES = {
     FINANCE : 'FINANCE',

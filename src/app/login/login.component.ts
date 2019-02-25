@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   // username: string ;
   // password: string ;
 
-  constructor( private apiservice: ApiService ) { }
+  constructor( public apiservice: ApiService ) { }
 
   ngOnInit() { }
 

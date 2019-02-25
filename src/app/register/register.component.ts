@@ -9,7 +9,7 @@ import { MessageService } from 'src/services/messages.service';
 })
 export class RegisterComponent implements OnInit {
 
-  private registrationForm: Object = {
+  public registrationForm: Admin = {
     username: '',
     password: '',
     email: '',
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  private RegisterUser() {
+   RegisterUser() {
     this.apiservice.register(this.registrationForm).subscribe((response) => {
        console.log(response);
       },
@@ -42,4 +42,12 @@ export class RegisterComponent implements OnInit {
     this.apiservice.logout();
   }
 
+}
+
+interface Admin {
+  username: string;
+  password: string;
+  email: string;
+  first_name: string;
+  last_name: string;
 }

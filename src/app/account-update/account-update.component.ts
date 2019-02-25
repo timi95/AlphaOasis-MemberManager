@@ -7,6 +7,8 @@ import { MessageService } from 'src/services/messages.service';
   templateUrl: './account-update.component.html',
   styleUrls: ['./account-update.component.css']
 })
+
+
 export class AccountUpdateComponent implements OnInit {
   INDCHOICES = {
     FINANCE : 'FINANCE',
@@ -18,7 +20,7 @@ export class AccountUpdateComponent implements OnInit {
     REAL_ESTATE: 'REAL ESTATE',
     SOFTWARE: 'SOFTWARE',
   };
-  updateForm: Object = {
+  updateForm: Account = {
     Name : 'Default',
     email : 'default@email.com',
     phone : '1234567890',
@@ -42,4 +44,15 @@ export class AccountUpdateComponent implements OnInit {
     );
   }
 
+
+}
+interface Account {
+  id?: number;
+  Name: string;
+  email: string;
+  phone: any;
+  industry: string;
+  website: string;
+  description: string;
+  isActive?: boolean;
 }
