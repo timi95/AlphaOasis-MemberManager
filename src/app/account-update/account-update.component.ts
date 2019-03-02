@@ -36,6 +36,7 @@ export class AccountUpdateComponent implements OnInit {
   updateAccount() {
     this.apiService.updateAccount(this.updateForm).subscribe((response) => {
        console.log(response);
+       alert('Update Successful !');
       },
       err => {
         console.log(err);

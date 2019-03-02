@@ -18,6 +18,7 @@ export class AccountDeleteComponent implements OnInit {
     this.apiService.getAccountDetails(this.PK).subscribe((response) => {
       console.log(response);
       this.apiService.deleteAccount(response).subscribe((response_) => { console.log(response_); });
+      alert('Deletion Successful !');
     },
     err => {
       console.log(err);

@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
    RegisterUser() {
     this.apiservice.register(this.registrationForm).subscribe((response) => {
        console.log(response);
+       alert('Registration Successful !');
       },
       err => {
         console.log(err);
