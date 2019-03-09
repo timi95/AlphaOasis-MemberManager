@@ -1,0 +1,3 @@
+[Ctr + R to open the run box ]
+
+shell:common startup 
